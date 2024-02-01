@@ -34,14 +34,23 @@ pip install agt-server
 ```
 
 ## Agent Methods 
-For both the `RPSAgent`s and `ChickenAgent`s here are a few methods that you may find helpful! 
+For the `BOSAgent`s here are a few methods that you may find helpful! 
 - `self.calculate_utils(a1, a2)` is a method that takes in player 1's action (`a1`) and player 2's action (`a2`) and returns a list [`u1`, `u2`] where `u1` is player1's utility and `u2` is player 2's utility. 
-    - For example `self.calculate_utils(self.ROCK, self.PAPER)` would return `[-1, 1]`
 - `self.get_action_history()` is a method that returns a list of your actions from previous rounds played.
 - `self.get_util_history()` is a method that returns a list of your utility from previous rounds played. 
 - `self.get_opp_action_history()` is a method that returns a list of your opponent's actions from previous rounds played.
 - `self.get_opp_util_history()` is a method that returns a list of your opponent's utility from previous rounds played.
 - `self.get_last_action()` is a method that returns a your last action from the previous round.
 - `self.get_last_util()` is a method that returns a your last utility from the previous round.
-- `self.get_opp_action_history()` is a method that returns a your opponent's last action from the previous round.
-- `self.get_opp_util_history()` is a method that returns a your opponent's last utility from the previous round.
+- `self.get_opp_last_action()` is a method that returns a your opponent's last action from the previous round.
+- `self.get_opp_last_util()` is a method that returns a your opponent's last utility from the previous round.
+
+
+In addition to the above methods, for the `BOSIIAgent`s, you also have access to the following methods:
+- `self.is_row_player()` is a method that returns true if you are the row player (and thus have incomplete information) and false if you are the column player.
+- `self.get_mood()` is a method that returns your current mood: either self.GOOD_MOOD or self.BAD_MOOD provided you are the column player.  The mood determines the payoff matrix. If you are the row player, this method returns None, because your mood does not vary and you do not know the opponent's mood.
+- `self.get_last_mood()` is a method that returns your mood in the last round: either self.GOOD_MOOD or self.BAD_MOOD provided you are the column player and that at least 1 round has been played. Otherwise it returns None 
+- `self.get_mood_history()` is a method that returns your mood over all rounds played in the current matching: either self.GOOD_MOOD or self.BAD_MOOD provided you are the column player and that at least 1 round has been played. Otherwise it returns None
+- `self.row_player_calculate_util(row_move, col_move)` is a method that returns the row player's hypothetical reward from the specified action profile.
+- `self.col_player_calculate_util(row_move, col_move)` is analogous to this, but returns the column player's hypothetical reward, and depends on their mood
+- `self.col_player_good_mood_prob()` is a method that returns the probability that the column player is in a good mood, which is useful in expected value calculations.
