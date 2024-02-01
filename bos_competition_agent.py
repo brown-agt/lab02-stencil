@@ -1,7 +1,7 @@
-from agt_server.agents.base_agents.bosii_agent import BOSIIAgent
+from agt_server.agents.base_agents.bos_agent import BOSAgent
 from agt_server.local_games.bos_arena import BOSArena
 
-class BoSComp(BOSIIAgent):
+class BoSComp(BOSAgent):
     def setup(self):
         self.COMPROMISE, self.STUBBORN = 0, 1
         self.actions = [self.COMPROMISE, self.STUBBORN]
