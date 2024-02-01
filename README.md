@@ -17,13 +17,13 @@ Please then navigate to your project directory. Run the following commands to cr
 
 If you own a Mac 
 ```bash
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 ```
 
 If you own a Windows 
 ```bash 
-python3 -m venv .venv
+python -m venv .venv
 .venv\Scripts\activate
 ```
 
