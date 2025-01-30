@@ -1,7 +1,7 @@
-from agt_server.agents.base_agents.bosii_agent import BOSIIAgent
-from agt_server.local_games.bosii_arena import BOSIIArena
+from agt_server.agents.base_agents.bos_agent import BOSAgent
+from agt_server.local_games.bos_arena import BOSArena
 
-class ReluctantAgent(BOSIIAgent):
+class ReluctantAgent(BOSAgent):
     def setup(self):
         self.COMPROMISE, self.STUBBORN = 0, 1
         self.GOOD_MOOD, self.BAD_MOOD = 0, 1
@@ -25,10 +25,10 @@ class ReluctantAgent(BOSIIAgent):
             self.curr_state = 0
 
 if __name__ == "__main__":
-    agent_name = ... # Please give your agent a name
+    agent_name = "ReluctantAgent"
 
     agent = ReluctantAgent(agent_name)
-    arena = BOSIIArena(
+    arena = BOSArena(
         num_rounds=1000,
         timeout=1,
         players=[

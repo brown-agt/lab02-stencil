@@ -1,8 +1,8 @@
-from agt_server.agents.base_agents.bosii_agent import BOSIIAgent
+from agt_server.agents.base_agents.bos_agent import BOSAgent
 from agt_server.local_games.bos_arena import BOSArena
 from bos_punitive import PunitiveAgent
 
-class BoSFSAgent1(BOSIIAgent):
+class BoSFSAgent2(BOSAgent):
     def setup(self):
         self.COMPROMISE, self.STUBBORN = 0, 1
         self.actions = [self.COMPROMISE, self.STUBBORN]
@@ -30,12 +30,12 @@ class BoSFSAgent1(BOSIIAgent):
         
 
 if __name__ == "__main__":
-    agent_name = ... # Please give your agent a name
+    agent_name = ??? # TODO: Please give your agent a name
 
-    agent = BoSFSAgent1(agent_name)
+    agent = BoSFSAgent2(agent_name)
     arena = BOSArena(
         num_rounds=1000,
-        timeout=1,
+        timeout=100,
         players=[
             agent,
             PunitiveAgent("Agent_1"),

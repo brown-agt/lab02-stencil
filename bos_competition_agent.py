@@ -1,6 +1,9 @@
 from agt_server.agents.base_agents.bos_agent import BOSAgent
 from agt_server.local_games.bos_arena import BOSArena
-
+from bos_finite_state_agent1 import BoSFSAgent1
+from bos_finite_state_agent2 import BoSFSAgent2
+from bos_punitive import PunitiveAgent
+from bos_reluctant import ReluctantAgent
 class BoSComp(BOSAgent):
     def setup(self):
         self.COMPROMISE, self.STUBBORN = 0, 1
@@ -30,7 +33,7 @@ class BoSComp(BOSAgent):
 
 if __name__ == "__main__":
     #TODO: Please fill out the following section
-    agent_name = ... # Please give your agent a name
+    agent_name = ??? # Please give your agent a name
     ip = ... # Please write the ip as a string
     port = ... # Please write the port as an int 
     join_server = False # Please set this to True when you want to join the server
@@ -40,15 +43,18 @@ if __name__ == "__main__":
     if join_server:
         agent.connect(ip=ip, port=port)
     else: 
+        # NOTE: Feel free to edit this arena to put in whatever agents you want including the 2 finite state agents you coded
+        #       to test your agent against different distributions and implementations of agents. Currently your agent is only 
+        #       facing 4 other versions of itself. 
         arena = BOSArena(
             num_rounds=1000,
-            timeout=1,
+            timeout=100,
             players=[
                 agent,
                 BoSComp("Agent_1"),
                 BoSComp("Agent_2"),
-                BoSComp("Agent_3"),
-                BoSComp("Agent_4")
+                PunitiveAgent("PunitiveAgent"),
+                ReluctantAgent("ReluctantAgent")
             ]
         )
         arena.run()

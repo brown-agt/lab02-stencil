@@ -1,6 +1,7 @@
 from agt_server.agents.base_agents.bosii_agent import BOSIIAgent
 from agt_server.local_games.bosii_arena import BOSIIArena
 
+
 class BoSIIComp(BOSIIAgent):
     def setup(self):
         self.COMPROMISE, self.STUBBORN = 0, 1
@@ -31,7 +32,7 @@ class BoSIIComp(BOSIIAgent):
 
 if __name__ == "__main__":
     #TODO: Please fill out the following section
-    agent_name = ... # Please give your agent a name
+    agent_name = ??? # Please give your agent a name
     ip = ... # Please write the ip as a string
     port = ... # Please write the port as an int 
     join_server = False # Please set this to True when you want to join the server
@@ -41,9 +42,12 @@ if __name__ == "__main__":
     if join_server:
         agent.connect(ip=ip, port=port)
     else: 
+        # NOTE: Feel free to edit this arena to put in whatever agents you want, including our versions of imported incomplete 
+        #       information agents to test your agent against different distributions and implementations of agents. Currently 
+        #       your agent is only facing 4 other versions of itself. 
         arena = BOSIIArena(
             num_rounds=1000,
-            timeout=1,
+            timeout=100,
             players=[
                 agent,
                 BoSIIComp("Agent_1"),
