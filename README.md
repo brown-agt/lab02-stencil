@@ -58,7 +58,7 @@ python -m venv .venv
 
 ```bash
 pip install --upgrade pip
-pip install --upgrade agt-server
+pip install --upgrade agt_server
 ```
 
 ## Agent Methods
