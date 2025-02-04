@@ -5,27 +5,29 @@
 In Lab 2 of the CS1440/2440 course, you will engage with the game theory problem "Battle of the Sexes" using Python. This lab involves both complete and incomplete information scenarios. You'll design agent strategies using finite state machines (FSMs) and test these strategies against both pre-implemented agents and classmates' agents in simulations and competitions.
 
 ## Setup and Installation
-
 Follow these steps to set up your environment and install the necessary package for the lab.
 
 **IMPORTANT: Please install/use a version of `Python >= 3.10`**
 To check which version of Python you're using please run
-
 ```bash
 python --version
 ```
 
-If you installed Python 3.11 but your computer defaults to Python 3.9 you can initialize the virtual environment below to use
-Python 3.11 instead by running
+If you installed Python 3.11 but your computer defaults to Python 3.9 you can initialize the virtual environment below to use 
+Python 3.11 instead by running:
 
+If you own a Mac 
 ```bash
 python3.11 -m venv .venv
 ```
-
-Instead of
-
+Instead of 
 ```bash
 python3 -m venv .venv
+```
+
+If you own a Windows 
+```bash
+py -3.11 -m venv .venv
 ```
 
 ### Step 1: Git Clone the Repository
